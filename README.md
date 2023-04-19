@@ -196,4 +196,12 @@ nginx
 docker cp 5eff66eec7e1:/etc/nginx/nginx.conf  /data/conf/nginx.conf
 #把外面的内容复制到容器里面
 docker cp  /data/conf/nginx.conf  5eff66eec7e1:/etc/nginx/nginx.conf
+
+#把容器导入导出（用于整个容器备份）
+docker export 5eff66eec7e1 > abc.tar
+
+cat abc.tar | docker import - xiaoguangbiao/redis:3.7
+docker images
+
+
 ```
